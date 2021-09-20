@@ -9,19 +9,24 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
+    "styled-components": "^5.3.1",
     "web-vitals": "^1.0.1"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-plugin-jest-dom": "^3.9.2",
+    "eslint-plugin-testing-library": "^4.12.3",
+    "husky": "^7.0.0",
+    "prettier": "^2.4.1"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "scripts": {
+    "build": "react-scripts build",
+    "eject": "react-scripts eject",
+    "lint": "eslint './src/**/*.js'",
+    "prettier": "prettier --write ./src/**/*.js ",
+    "start": "react-scripts start",
+    "test": "react-scripts test",
+    "prepare": "husky install"
   },
   "browserslist": {
     "production": [
@@ -34,5 +39,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn run prettier",
+      "pre-push": "yarn run lint && yarn run test --watchAll=false"
+    }
   }
 }
