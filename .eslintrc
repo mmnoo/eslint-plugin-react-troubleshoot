@@ -1,6 +1,11 @@
 {
   "extends": ["react-app", "react-app/jest"],
-  "plugins": ["react-hooks", "testing-library", "jest-dom"],
+  "plugins": [
+    "react-hooks",
+    "testing-library",
+    "jest-dom",
+    "plugin:react/jsx-runtime"
+  ],
   "rules": {
     "camelcase": "off",
     "curly": ["error", "all"],
